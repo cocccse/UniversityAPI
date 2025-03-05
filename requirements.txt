@@ -2,3 +2,4 @@ fastapi[all]
 asyncpg
 sqlalchemy
 alembic
+pydantic[email]

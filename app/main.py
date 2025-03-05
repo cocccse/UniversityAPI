@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from app.students.router import router as router_students
 app = FastAPI()
 
-@app.get("/")
+@app.get("/", summary='Главная страница')
 async def home_page():
     return {"message": "Hello World"}
 
