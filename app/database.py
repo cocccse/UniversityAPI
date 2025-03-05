@@ -2,7 +2,7 @@ from datetime import datetime
 from typing import Annotated
 
 from sqlalchemy import func
-from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncAttrs
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncAttrs, async_sessionmaker
 from sqlalchemy.orm import DeclarativeBase, declared_attr, Mapped, mapped_column
 
 from app.config import settings
@@ -10,7 +10,7 @@ from app.config import settings
 DATABASE_URL = settings.db_url()
 
 async_engine = create_async_engine(url=DATABASE_URL, echo=True)
-async_sessionmaker = async_sessionmaker(engine=async_engine, expire_on_commit=False)
+async_sessionmaker = async_sessionmaker(async_engine, expire_on_commit=False)
 
 # настройка аннотаций
 int_pk = Annotated[int, mapped_column(primary_key=True)]
