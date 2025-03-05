@@ -10,16 +10,16 @@ router = APIRouter(prefix='/students', tags=['Студенты'])
 async def get_all_students(request_body: StudentRespModel = Depends()) -> list[StudentSchema]:
     return await StudentService.get_all(**request_body.to_dict())
 
-@router.get("/{id}", summary="Получить одного студента по id")
+@router.get("/{sudent_id}", summary="Получить одного студента по id")
 async def get_student_by_id(student_id: int) -> StudentSchema | None:
-    result = await StudentService.get_one_or_none_by_id(student_id)
+    result = await StudentService.find_full_data(student_id)
     if result is None:
         raise HTTPException(status_code=404)
     return result
 
 @router.get('/by_filter', summary='Получить одного студента по фильтру')
 async def get_student_by_filter(request_body: StudentRespModel = Depends()) -> StudentSchema | dict:
-    result = await StudentService.get_one_or_none_by_filter(**request_body.to_dict())
+    result = await StudentService.find_full_data(**request_body.to_dict())
     if result:
         return result
     raise HTTPException(status_code=404)

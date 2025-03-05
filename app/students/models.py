@@ -1,3 +1,4 @@
+
 from datetime import date
 
 from sqlalchemy import Text, ForeignKey
@@ -26,3 +27,18 @@ class StudentTable(Base):
         return (f"{self.__class__.__name__}(id={self.id}, "
                 f"first_name={self.first_name!r},"
                 f"last_name={self.last_name!r})")
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "phone_number": self.phone_number,
+            "first_name": self.first_name,
+            "last_name": self.last_name,
+            "date_of_birth": self.date_of_birth,
+            "email": self.email,
+            "address": self.address,
+            "enrollment_year": self.enrollment_year,
+            "course": self.course,
+            "special_notes": self.special_notes,
+            "major_id": self.major_id
+        }
