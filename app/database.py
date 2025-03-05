@@ -15,7 +15,7 @@ async_sessionmaker = async_sessionmaker(async_engine, expire_on_commit=False)
 # настройка аннотаций
 int_pk = Annotated[int, mapped_column(primary_key=True)]
 created_at = Annotated[datetime, mapped_column(server_default=func.now())]
-updated_at = Annotated[datetime, mapped_column(server_default=func.now(), onupdate=func.now)]
+updated_at = Annotated[datetime, mapped_column(server_default=func.now(), onupdate=func.now())]
 str_uniq = Annotated[str, mapped_column(unique=True, nullable=False)]
 
 
