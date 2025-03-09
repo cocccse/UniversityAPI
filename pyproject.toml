@@ -7,3 +7,4 @@ fastapi = "^0.115.11"
 uvicorn = {extras = ["standart"], version = "^0.34.0"}
 pydantic = {extras = ["emal"], version = "^2.10.6"}
 pydantic-settings = "^2.8.1"
+inflect = "^7.5.0"
