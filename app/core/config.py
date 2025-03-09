@@ -40,6 +40,6 @@ class Settings(BaseSettings):
 
     db: DataBaseConfig
     run: RunConfig = RunConfig()
-    api: ApiV1PrefixConfig = ApiPrefixConfig()
+    api: ApiPrefixConfig = ApiPrefixConfig()
 
 settings = Settings()
