@@ -2,8 +2,11 @@ import uvicorn
 from fastapi import FastAPI
 
 from core.config import settings
+from lifespan import lifespan
 
-app = FastAPI()
+app = FastAPI(
+    lifespan=lifespan
+)
 
 @app.get("")
 async def home_page():
